@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "SARA_alarma_IoT"

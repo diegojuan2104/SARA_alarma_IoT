@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "575871122629",
+    "firebase_url": "https://sara-alarma-iot.firebaseio.com",
+    "project_id": "sara-alarma-iot",
+    "storage_bucket": "sara-alarma-iot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575871122629:android:c04716563a61d919db84ac",
+        "android_client_info": {
+          "package_name": "com.example.sara_alarma_iot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575871122629-nfhg9acjdvjnrtc3ad64kchajhvglurh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sara_alarma_iot",
+            "certificate_hash": "aeedecedd0904917615c3ea2256eb947a28e8305"
+          }
+        },
+        {
+          "client_id": "575871122629-m39indh0veobdplenldiossvshehtq7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARIUxr2_yE1iqj6vo_1oEzUdWNKLmqsLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575871122629-m39indh0veobdplenldiossvshehtq7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
