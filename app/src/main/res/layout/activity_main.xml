@@ -34,6 +34,18 @@
         android:gravity="center_horizontal"
         android:layout_marginBottom="50dp"
         />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Temperatura:"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/txt_temperatura"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

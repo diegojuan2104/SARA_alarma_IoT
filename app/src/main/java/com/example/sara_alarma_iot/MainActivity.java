@@ -3,6 +3,7 @@ package com.example.sara_alarma_iot;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_estado;
-    TextView txt_estado;
+    TextView txt_estado, txt_temperatura;
     ListView lv_historial;
 
     String estado;
@@ -46,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
         inicializarFirebase();
         enlazar();
         capturarEstadoActual();
+        capturarTemperatura();
         cambiarEstado();
         listarHisotrial();
+
     }
 
     //Captura el estado actual del alarma desde la base de datos de firebase
@@ -62,6 +65,29 @@ public class MainActivity extends AppCompatActivity {
                     btn_estado.setText("Desactivar");
                 }else{
                     btn_estado.setText("Activar");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+    private void capturarTemperatura(){
+        databaseReference.child("Temperatura").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int temperatura = Integer.parseInt(snapshot.getValue().toString());
+                txt_temperatura.setText("Temperatura: "+temperatura+"°C");
+
+                if(temperatura >= 50){
+                    txt_temperatura.setBackgroundColor(Color.RED);
+                }else if(temperatura >=40){
+                    txt_temperatura.setBackgroundColor(Color.YELLOW);
+                }else {
+                    txt_temperatura.setBackgroundColor(Color.GREEN);
                 }
             }
             @Override
@@ -125,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         btn_estado = findViewById(R.id.btn_estado);
         txt_estado = findViewById(R.id.txt_estado);
         lv_historial = findViewById(R.id.lv_historial);
+        txt_temperatura = findViewById(R.id.txt_temperatura);
     }
 
 
