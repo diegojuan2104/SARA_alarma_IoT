@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Inicializa la base de datos con las variables necesaria para que funcione
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
