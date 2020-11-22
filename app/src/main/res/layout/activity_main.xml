@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:background="#602a2e"
     >
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,36 +17,60 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+     <ImageView
+         android:src="@drawable/campana"
+         android:layout_width="70dp"
+         android:layout_height="70dp"
+         android:layout_gravity="center"
+         >
 
+     </ImageView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="SARA"
-        android:textSize="50dp"
+        android:textSize="20dp"
         android:gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed"
         />
     <TextView
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Sistema de alarma de robos y anti-incendios "
         android:textSize="20dp"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="15dp"
         />
 
-
-    <TextView
+            <ImageView
+                android:src="@drawable/temperatura"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                />
+            <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Temperatura:"
         android:textSize="30dp"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
+                android:layout_marginBottom="15dp"
         android:id="@+id/txt_temperatura"
+        android:fontFamily="sans-serif-condensed"
         />
+
+            <ImageView
+                android:src="@drawable/candado"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +78,9 @@
         android:text="Estado actual del Alarma: "
         android:textSize="30dp"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-condensed"
+
         />
 
     <TextView
@@ -65,17 +92,22 @@
         android:textSize="30dp"
         android:gravity="center_horizontal"
         android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-condensed"
         />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="ACTIVAR/DESACTIVAR"
         android:id="@+id/btn_estado"
         android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:color="#000"
         />
 
     <TextView
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -87,6 +119,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <ListView
+        android:fontFamily="sans-serif-condensed"
         android:id="@+id/lv_historial"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

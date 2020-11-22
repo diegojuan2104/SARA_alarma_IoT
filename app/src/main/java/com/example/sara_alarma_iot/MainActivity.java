@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_estado;
     TextView txt_estado, txt_temperatura;
     ListView lv_historial;
-
-    String estado;
+    Boolean estado;
 
 
     private List<String> listHistorial = new ArrayList<String>();
@@ -42,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
         // Llamado a los métodos de acción
         inicializarFirebase();
         enlazar();
+
+        btn_estado.setBackgroundColor(Color.BLACK);
+
         capturarEstadoActual();
         capturarTemperatura();
         cambiarEstado();
@@ -59,12 +60,13 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.child("Estado").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                estado = snapshot.getValue().toString();
-                txt_estado.setText(estado);
-                if(estado.equals("Activada")){
+                estado = Boolean.parseBoolean(snapshot.getValue().toString());
+                if(estado){
+                    txt_estado.setText("ACTIVADA");
                     btn_estado.setText("Desactivar");
                 }else{
                     btn_estado.setText("Activar");
+                    txt_estado.setText("DESACTIVADA");
                 }
             }
             @Override
@@ -74,20 +76,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    ///Captura la temperatura que este almacenada en la db y dependiendo de en que se encuentre se le asigna un color 
     private void capturarTemperatura(){
         databaseReference.child("Temperatura").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int temperatura = Integer.parseInt(snapshot.getValue().toString());
+                Double temperatura = Double.parseDouble(snapshot.getValue().toString());
                 txt_temperatura.setText("Temperatura: "+temperatura+"°C");
 
                 if(temperatura >= 50){
-                    txt_temperatura.setBackgroundColor(Color.RED);
+                    txt_temperatura.setBackgroundColor(0xffEC1935);
                 }else if(temperatura >=40){
-                    txt_temperatura.setBackgroundColor(Color.YELLOW);
+                    txt_temperatura.setBackgroundColor(0xffECBB19);
                 }else {
-                    txt_temperatura.setBackgroundColor(Color.GREEN);
+                    txt_temperatura.setBackgroundColor(0xff629549);
                 }
             }
             @Override
@@ -109,11 +111,11 @@ public class MainActivity extends AppCompatActivity {
         btn_estado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(estado.equals("Activada")){
-                    databaseReference.child("Estado").setValue("Desactivada");
+                if(estado){
+                    databaseReference.child("Estado").setValue(false);
 
                 }else{
-                    databaseReference.child("Estado").setValue("Activada");
+                    databaseReference.child("Estado").setValue(true);
                 }
             }
         });
